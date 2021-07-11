@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const { token, prefix} = require('./config.json');
+const { token, prefix, weatherAPI} = require('./config.json');
 bot.commands = new Discord.Collection();
 const fs = require("fs");
 
@@ -26,7 +26,6 @@ bot.on('message', (message) => {
     let MessageArray = message.content.split(' ');
     let cmd = MessageArray[0].slice(prefix.length)
     let args = MessageArray.slice(1)
-    
     if(!message.content.startsWith(prefix)) return;
 
     let commandFile = bot.commands.get(cmd);
