@@ -14,7 +14,7 @@ bot.on('ready', () => {
         if(jsfile.length == 0) {return console.log("NO COMMANDS FILES FOUND")}
 
         jsfile.forEach(f => {
-            let props = require(`./commands/${f}`);
+            let props = require(`./commands/${f}, ./logs/${f}`);
             bot.commands.set(props.help.name, props)
         })
     })
@@ -33,5 +33,7 @@ bot.on('message', (message) => {
         commandFile.run(bot, message,args)
     }
 })
+
+bot.on
 
 bot.login(token);
