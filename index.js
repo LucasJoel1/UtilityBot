@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const { token, prefix, weatherAPI} = require('./config.json');
+const { token, prefix, weatherAPI, guildID} = require('./config.json');
 bot.commands = new Discord.Collection();
 const fs = require("fs");
 
@@ -14,7 +14,7 @@ bot.on('ready', () => {
         if(jsfile.length == 0) {return console.log("NO COMMANDS FILES FOUND")}
 
         jsfile.forEach(f => {
-            let props = require(`./commands/${f}, ./logs/${f}`);
+            let props = require(`./commands/${f}`);
             bot.commands.set(props.help.name, props)
         })
     })
@@ -34,6 +34,5 @@ bot.on('message', (message) => {
     }
 })
 
-bot.on
 
 bot.login(token);
