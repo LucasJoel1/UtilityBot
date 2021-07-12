@@ -1,4 +1,4 @@
-exports.run = async (bot,message,args) => {\
+exports.run = async (bot,message,args) => {
     
 
 
