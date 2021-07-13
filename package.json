@@ -9,6 +9,7 @@
   "author": "Lucas Joel",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.5.3"
+    "discord.js": "^12.5.3",
+    "node-fetch": "^2.6.1"
   }
 }
