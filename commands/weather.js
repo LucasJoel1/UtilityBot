@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const { weatherAPI } = require('../config.json');
 
-async function getWeather(bot, message, [city, country, units]) {
+exports.run = async (bot, message, [city, country, units]) => {
     // fetch normally uses Promises, which use a .catch to handle errors.
     // async/await requires us to use try/catch instead to handle errors.
     try {
@@ -18,7 +18,6 @@ async function getWeather(bot, message, [city, country, units]) {
     }
 }
 
-exports = {
-    run: getWeather,
-    help: { name: 'weather' }
-};
+exports.help = {
+    name: 'weather'
+}
