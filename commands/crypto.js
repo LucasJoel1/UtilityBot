@@ -37,7 +37,6 @@ exports.run = async (bot, message, [ids, convert, ]) => {
 
 **Market Capitalization:** ${market_cap}`)
             .setColor ("#536DFE")
-            .setThumbnail(logo)
             .setFooter("Powered by Nomics")
         )
             .catch(err => {
