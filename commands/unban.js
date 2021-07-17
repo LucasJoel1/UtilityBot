@@ -6,8 +6,10 @@ exports.run = async (bot,message,args) => {
     message.guild.fetchBans().then(bans => {
         message.guild.members.unban(member)
     })
+
     await message.channel.send(`${member} has been unbanned from ${message.guild}`);
 }
+
 exports.help = {
     name: 'unban'
 }
