@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fetch = require('node-fetch');
+const request = require('request');
 const { token, prefix, weatherAPI, catAPI, dogAPI} = require('./config.json');
 bot.commands = new Discord.Collection();
 const fs = require("fs");
