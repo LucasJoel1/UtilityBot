@@ -34,8 +34,7 @@ exports.run = async (bot, message, args) => {
 		const stream = ytdl(args[0], { filter: "audioonly" });
 
 		connection.play(stream, { seek: 0, volume: 1 }).on("finish", () => {
-			voiceChannel.leave();
-			message.channel.send("leaving channel");
+			message.channel.send("The Song Has Ended, Please Input Another");
 		});
 
 		await message.reply(`:thumbsup: Now Playing ***Your Link!***`);
@@ -65,5 +64,5 @@ exports.run = async (bot, message, args) => {
 	}
 }
 exports.help = {
-    name: "play",
+    name: "p",
 };
