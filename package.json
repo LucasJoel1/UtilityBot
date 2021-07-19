@@ -1,7 +1,7 @@
 {
   "name": "first-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "utility discord bot",
   "main": "index.js",
   "scripts": {
     "start": "node ."
@@ -12,9 +12,20 @@
     "@discordjs/opus": "^0.5.3",
     "discord.js": "^12.5.3",
     "ffmpeg-static": "^4.4.0",
+    "fs": "0.0.1-security",
     "node-fetch": "^2.6.1",
     "request": "^2.88.2",
     "yt-search": "^2.9.0",
     "ytdl-core": "^4.8.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucasJoel1/UtilityBot.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/LucasJoel1/UtilityBot/issues"
+  },
+  "homepage": "https://github.com/LucasJoel1/UtilityBot#readme"
 }

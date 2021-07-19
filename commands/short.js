@@ -1,7 +1,11 @@
 const { rapidAPI } = require('../config.json');
 const Discord = require('discord.js');
 
-exports.run = async (bot,message,args) => {
+module.exports ={
+	name: 'short',
+	description: 'shorten urls',
+	async execute(client, message, args, Discord){
+
     const request = require('request');
 
     const options = {
@@ -48,7 +52,4 @@ ${args[0]}
         }
     });
 }
-
-exports.help = {
-    name: 'short'
 }

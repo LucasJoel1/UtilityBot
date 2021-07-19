@@ -1,4 +1,7 @@
-exports.run = async (bot,message,args) => {
+module.exports = {
+    name: 'unban',
+    description: 'unbanned previously banned users',
+    async execute(client, message, args, Discord){
     if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("Insefficiant Permissions")
     const member = args[0];
 
@@ -8,8 +11,5 @@ exports.run = async (bot,message,args) => {
     })
 
     await message.channel.send(`${member} has been unbanned from ${message.guild}`);
-}
-
-exports.help = {
-    name: 'unban'
+    }
 }

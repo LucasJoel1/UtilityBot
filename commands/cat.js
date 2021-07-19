@@ -1,10 +1,11 @@
 const fetch = require('node-fetch');
 
-exports.run = async (bot,message,args) => {
-    fetch('https://aws.random.cat/meow').then(response => response.json());
-    const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
-    message.channel.send(file);
-}
-exports.help = {
-    name: 'cat'
+module.exports = {
+    name: 'cat',
+    description: 'pull up a random cat photo',
+    async execute(client, message, args, Discord){
+        fetch('https://aws.random.cat/meow').then(response => response.json());
+        const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
+        message.channel.send(file);
+    }
 }
