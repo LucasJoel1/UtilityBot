@@ -12,7 +12,7 @@ module.exports = {
         try {
             // fetch normally uses Promises, which use a .catch to handle errors.
             // async/await requires us to use try/catch instead to handle errors.
-            
+
 
             const response = await fetch(`https://api.nomics.com/v1/currencies/ticker?key=${cryptoAPI}&ids=${args[0]}&convert=${args[1]}&per-page=1&page=1`);
             const ids = args[0];
