@@ -1,7 +1,8 @@
 module.exports = {
     name: 'unban',
     description: 'unbanned previously banned users',
-    async execute(client, message, args, Discord) {
+    aliases: ['forgive', 'pardon'],
+    async execute(message, args, cmd, client, Discord) {
         if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("Insefficiant Permissions")
         const member = args[0];
 

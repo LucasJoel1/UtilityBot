@@ -1,7 +1,8 @@
 module.exports = {
     name: 'join',
     description: 'join the vc',
-    async execute(client, message, args, Discord) {
+    aliases: ['joinvc'],
+    async execute(message, args, cmd, client, Discord) {
         const fs = require('fs')
         const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
         for (const file of commandFiles) {

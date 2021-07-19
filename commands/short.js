@@ -6,7 +6,8 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'short',
 	description: 'shorten urls',
-	async execute(client, message, args, Discord) {
+	aliases: ['shorten', 'URL', 'url', 'shortenURL', 'shortenurl', 'shortURL', 'shortenurl'],
+	async execute(message, args, cmd, client, Discord) {
 
 		const request = require('request');
 

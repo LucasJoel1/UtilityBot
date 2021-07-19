@@ -7,7 +7,8 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'weather',
     description: "get information about the weather in different locations",
-    async execute(client, message, args, Discord) {
+    aliases: ['weatherinfo'],
+    async execute(message, args, cmd, client, Discord) {
 
         try {
             // fetch normally uses Promises, which use a .catch to handle errors.

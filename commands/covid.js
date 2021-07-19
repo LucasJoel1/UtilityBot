@@ -4,7 +4,8 @@ const fetch = require('node-fetch');
 module.exports = {
     name: 'covid',
     description: 'get info on covid staistics',
-    async execute(client, message, args, Discord) {
+    aliases: ['covid-19', 'covidStats', 'covid-stats'],
+    async execute(message, args, cmd, client, Discord) {
         try {
             // fetch normally uses Promises, which use a .catch to handle errors.
             // async/await requires us to use try/catch instead to handle errors.

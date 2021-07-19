@@ -5,8 +5,9 @@ const {
 
 module.exports = {
     name: 'dog',
+    aliases: ['doggy'],
     description: 'pull up a random dog photo',
-    async execute(client, message, args, Discord) {
+    async execute(message, args, cmd, client, Discord) {
         fetch('https://random.dog/woof.json').then(response => response.json());
         const {
             url

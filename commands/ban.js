@@ -1,7 +1,8 @@
 module.exports = {
     name: 'ban',
+    aliases: ['execute'],
     description: 'ban users',
-    async execute(client, message, args, Discord) {
+    async execute(message, args, cmd, client, Discord) {
         if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("Insefficiant Permissions")
         let member = message.mentions.members.first() || message.guild.members.cache.get(args[0])
         if (!member) return message.channel.send('```!!ban <member> <reason> <days>```');

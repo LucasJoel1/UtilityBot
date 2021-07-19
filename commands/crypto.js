@@ -7,8 +7,9 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: 'crypto',
+    alliases: [''],
     description: 'get information of different crypto currencies',
-    async execute(client, message, args, Discord) {
+    async execute(message, args, cmd, client, Discord) {
         try {
             // fetch normally uses Promises, which use a .catch to handle errors.
             // async/await requires us to use try/catch instead to handle errors.
