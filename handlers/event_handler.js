@@ -1,6 +1,9 @@
+// Importing dependencies
 const fs = require("fs");
 
 module.exports = (client, Discord) => {
+
+    // Event Handler
     const load_dir = (dirs) => {
         const event_files = fs
             .readdirSync(`./events/${dirs}`)

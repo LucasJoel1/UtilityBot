@@ -1,7 +1,9 @@
+// Importing dependencies
+
 const fetch = require('node-fetch');
 const {
     cryptoAPI
-} = require('../config.json');
+} = require('../../config.json');
 const Discord = require('discord.js');
 
 
@@ -11,11 +13,12 @@ module.exports = {
     description: 'get information of different crypto currencies',
     async execute(message, args, cmd, client, Discord) {
         try {
-            // fetch normally uses Promises, which use a .catch to handle errors.
-            // async/await requires us to use try/catch instead to handle errors.
 
+            // fetches info about different crypto currencies and converts it to the standard
 
             const response = await fetch(`https://api.nomics.com/v1/currencies/ticker?key=${cryptoAPI}&ids=${args[0]}&convert=${args[1]}&per-page=1&page=1`);
+
+            // allows usablilty of info from jsons from a list using consts
             const ids = args[0];
             const convert = args[1];
             const json = await response.json(); // Can't unpack (deconstruct) await since it's asynchronously returned
@@ -27,10 +30,11 @@ module.exports = {
             const status = json[0].status;
             const circulating_supply = json[0].circulating_supply;
             const market_cap = json[0].market_cap;
+            // logging the json for debugging
             console.log(json);
 
 
-
+            //send info to discord in embed form
             await message.channel.send(
                     new Discord.MessageEmbed()
                     .setAuthor(`${name}`)
@@ -48,10 +52,10 @@ module.exports = {
                     .setColor("#536DFE")
                     .setFooter("Powered by Nomics")
                 )
+                // error checking
                 .catch(err => {
                     message.channel.send('An error occured with the following message: ' + err.message)
                 });
-            //message.channel.send(/* do something with the data*/);
         } catch (err) {
             console.error(err);
         }

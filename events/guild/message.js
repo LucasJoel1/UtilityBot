@@ -1,17 +1,29 @@
-require('dotenv').config();
+// Importing dependencies
+require("dotenv").config();
+
 module.exports = (Discord, client, message) => {
+
+    // stating prefix
     const prefix = '-';
+    // checking if the message has the prefix or the author is the bot
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const cmd = args.shift();
 
-    const command = client.commands.get(cmd) || client.commands.find(a => a.aliases && a.aliases.includes(cmd));
+    const command =
+        client.commands.get(cmd) ||
+        // adds aliase functionality
+        client.commands.find((a) => a.aliases && a.aliases.includes(cmd));
 
     try {
         command.execute(message, args, cmd, client, Discord);
-    } catch (err) {
-        message.reply(':x: There was an error trying to execute this command or it does not exist in our database');
+    } catch (
+        err // error checking
+    ) {
+        message.reply(
+            ":x: There was an error trying to execute this command or it does not exist in our database"
+        );
         console.log;
     }
-}
+};

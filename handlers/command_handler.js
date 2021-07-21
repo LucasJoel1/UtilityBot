@@ -1,15 +1,42 @@
-const { dir } = require("console");
+// Importing dependencies
 const fs = require("fs");
 
 module.exports = (client, Discord) => {
-    const command_files = fs
-        .readdirSync("./commands/")
+    // Allowing access to moderation files
+    const moderation_files = fs
+        .readdirSync("./commands/moderation/")
         .filter((file) => file.endsWith(".js"));
 
-    for (const file of command_files) {
-        const command = require(`../commands/${file}`);
-        if (command.name) {
-            client.commands.set(command.name, command);
+    for (const file of moderation_files) {
+        const moderation = require(`../commands/moderation/${file}`);
+        if (moderation.name) {
+            client.commands.set(moderation.name, moderation);
+        } else {
+            continue;
+        }
+    }
+    // Allowing access to api files
+    const api_files = fs
+        .readdirSync("./commands/api")
+        .filter((file) => file.endsWith(".js"));
+
+    for (const file of api_files) {
+        const api = require(`../commands/api/${file}`);
+        if (api.name) {
+            client.commands.set(api.name, api);
+        } else {
+            continue;
+        }
+    }
+    // Allowing access to utility files
+    const utility_files = fs
+        .readdirSync("./commands/utility")
+        .filter((file) => file.endsWith(".js"));
+
+    for (const file of utility_files) {
+        const utility = require(`../commands/utility/${file}`);
+        if (utility.name) {
+            client.commands.set(utility.name, utility);
         } else {
             continue;
         }
