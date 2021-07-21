@@ -1,7 +1,9 @@
+![logo.svg](./resources/logo.svg)
 # Utility Bot
 
 Utility Bot is an easy to use utility discord bot with basic moderation features and user friendly information commands.
 
+![install.svg](./resources/install.svg)
 ## Installation
 
 Utility Bot uses [node.js](https://nodejs.org/en/) and the [Discord.js](https://discord.js.org) library and some others.  To use the bot please use the commands below.
@@ -17,6 +19,7 @@ npm install fs
 npm i node-fetch
 ```
 
+![commands.svg](./resources/commands.svg)
 ## Commands
 
 ### API Commands
@@ -39,11 +42,14 @@ npm i node-fetch
 
 > **ping:** Gets the bots latency to the server and Discord API
 
+![plans.svg](./)
 ## Plans for the Future
 
 > I plan on adding a help command to the bot
 > I plan on adding a [Minecraft](https://minecraft.net) command to view information about servers and players
 > I plan on adding a robotics command to view info about [FRC](https://www.firstinspires.org/)
+
+![support.svg](./resources/support.svg)
 
 ## How Can I Support Development?
 
