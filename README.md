@@ -35,7 +35,7 @@ npm i node-fetch
 > - **ban:** Bans a user from a Discord server <br />
 > - **kick:** Kicks a user from a Discord server <br />
 > - **unban:** Unbans a user from a Discord server <br />
-> - *possibly* **music** adds full music bot functionality <br />
+> - *possibly* **music:** adds full music bot functionality <br />
 > - And more to come<br />
 
 ### Utility Commands
