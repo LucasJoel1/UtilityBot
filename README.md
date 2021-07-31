@@ -48,7 +48,7 @@ npm i node-fetch
 
 > - I plan on adding a help command to the bot <br />
 > - I plan on adding a [Minecraft](https://minecraft.net) command to view information about servers and players <br />
-> - I plan on adding a robotics command to view info about [FRC](https://www.firstinspires.org/) <br />
+> - I plan on adding a github wiki to better explain how to use all the commands <br />
 
 ![plans.svg](./resources/plans.svg)
 

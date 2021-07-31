@@ -40,5 +40,31 @@ module.exports = (client, Discord) => {
         } else {
             continue;
         }
+        // Allows access to robotics files
     }
+    const robotics_files = fs
+        .readdirSync("./commands/robotics/")
+        .filter((file) => file.endsWith(".js"));
+
+    for (const file of robotics_files) {
+        const robotics = require(`../commands/robotics/${file}`);
+        if (robotics.name) {
+            client.commands.set(robotics.name, robotics);
+        } else {
+            continue;
+        }
+    }
+    const hypixelMain_files = fs
+        .readdirSync("./commands/hypixel/main")
+        .filter((file) => file.endsWith(".js"));
+
+    for (const file of hypixelMain_files) {
+        const hypixelMain = require(`../commands/hypixel/main/${file}`);
+        if (hypixelMain.name) {
+            client.commands.set(hypixelMain.name, hypixelMain);
+        } else {
+            continue;
+        }
+    }
+    
 };

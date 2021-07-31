@@ -48,7 +48,7 @@ module.exports = {
             `
                         )
                         .setThumbnail(
-                            `https://openweathermap.org/img/wn/${icon}@2x.png`
+                            `https://openweathermap.org/img/wn/${icon}@2x.png`, "https://openweathermap.org/themes/openweathermap/assets/img/logo_white_cropped.png"
                         )
                         .setColor("#536DFE")
                         .setFooter("Powered by OpenWeatherMap")

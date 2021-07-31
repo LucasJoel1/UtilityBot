@@ -19,6 +19,5 @@ module.exports = {
         // sending image to channel
         message.channel.send(url);
         // logging json for debugging
-        console.log("command");
     },
 };

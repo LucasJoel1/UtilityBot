@@ -1,10 +1,11 @@
 // Importing dependencies
 require("dotenv").config();
+const { PREFIX } = require("../../config.json");
 
 module.exports = (Discord, client, message) => {
 
     // stating prefix
-    const prefix = '-';
+    const prefix = PREFIX;
     // checking if the message has the prefix or the author is the bot
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 

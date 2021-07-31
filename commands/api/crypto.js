@@ -50,7 +50,7 @@ module.exports = {
 
 **Market Capitalization:** ${market_cap}`)
                     .setColor("#536DFE")
-                    .setFooter("Powered by Nomics")
+                    .setFooter("Powered by Nomics", "https://www.startupinspire.com/assets/startups/5889/1578689899_nomics-logo.png")
                 )
                 // error checking
                 .catch(err => {
