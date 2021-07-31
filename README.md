@@ -1,7 +1,14 @@
-![logo.svg](./resources/logo.svg)
-# Utility Bot
+<div align="center">
+  <h1>
+    <a href="https://github.com/LucasJoel1/UtilityBot" target="_blank">
+      <img height="300" alt="UB" src="./resources/logo.svg">
+    </a>
+    <br />
+    Utility Bot
+  </h1>
+</div>
 
-Utility Bot is an easy to use utility discord bot with basic moderation features and user friendly information commands.
+**Utility Bot** is an easy to use utility discord bot with basic moderation features and user friendly information commands.
 
 
 ## Installation
@@ -9,16 +16,13 @@ Utility Bot is an easy to use utility discord bot with basic moderation features
 Utility Bot uses [node.js](https://nodejs.org/en/) and the [Discord.js](https://discord.js.org) library and some others.  To use the bot please use the commands below.
 
 ```bash
-
 npm init
-
 npm install discord.js
-
 npm install fs
-
 npm i node-fetch
 ```
-![install.svg](./resources/install.svg)
+
+<img height="180" alt="install" src="./resources/install.svg">
 
 ## Commands
 
@@ -42,7 +46,7 @@ npm i node-fetch
 
 > - **ping:** Gets the bots latency to the server and Discord API <br />
 
-![commands.svg](./resources/commands.svg)
+<img height="180" alt="commands" src="./resources/commands.svg">
 
 ## Plans for the Future
 
@@ -50,9 +54,10 @@ npm i node-fetch
 > - I plan on adding a [Minecraft](https://minecraft.net) command to view information about servers and players <br />
 > - I plan on adding a github wiki to better explain how to use all the commands <br />
 
-![plans.svg](./resources/plans.svg)
+<img height="180" alt="plans" src="./resources/plans.svg">
 
 ## How Can I Support Development?
 
 If you have an idea for the bot, have found a bug or need help, please open a issue, I am always open to ideas and am here to help.
-![support.svg](./resources/support.svg)
+
+<img height="180" alt="support" src="./resources/support.svg">
