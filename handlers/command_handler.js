@@ -54,17 +54,4 @@ module.exports = (client, Discord) => {
             continue;
         }
     }
-    const hypixelMain_files = fs
-        .readdirSync("./commands/hypixel/main")
-        .filter((file) => file.endsWith(".js"));
-
-    for (const file of hypixelMain_files) {
-        const hypixelMain = require(`../commands/hypixel/main/${file}`);
-        if (hypixelMain.name) {
-            client.commands.set(hypixelMain.name, hypixelMain);
-        } else {
-            continue;
-        }
-    }
-    
 };
