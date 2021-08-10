@@ -1,5 +1,7 @@
 // Importing dependencies
-const { rapidAPI } = require("../../config.json");
+const {
+    rapidAPI
+} = require("../../config.json");
 const Discord = require("discord.js");
 
 module.exports = {
@@ -41,32 +43,36 @@ module.exports = {
             // logging recieved json for debugging
             console.log(data);
             console.log(args[0]);
-            // error checking
-            if (err || data.error) {
-                return message.channel.send(`:x: Something went wrong.`);
-            }
-            // sending recieved info to discord through and embed
-            else {
-                message.channel.send(
-                    new Discord.MessageEmbed()
-                        .setAuthor(message.author.tag)
-                        .setTitle("Utility Bot's URL Shortener")
-                        .setURL(data.result_url)
-                        .setDescription(
-                            `
+
+            const embed = new Discord.MessageEmbed()
+
+                .setAuthor(message.author.tag)
+                .setTitle("Utility Bot's URL Shortener")
+                .setURL(data.result_url)
+                .setDescription(
+                    `
 **Your Shortened Link**
 ${data.result_url}
 
 **Original Link**
 ${args[0]}
 `
-                        )
-                        .setFooter(
-                            "Powered by Utility Bot Created by Lucas Joel"
-                        )
-                        .setColor("#536DFE")
-                        .setThumbnail("https://i.ibb.co/Dpwjvy9/short.png")
-                );
+                )
+                .setFooter(
+                    "Powered by Utility Bot Created by Lucas Joel"
+                )
+                .setColor("#536DFE")
+                .setThumbnail("https://i.ibb.co/Dpwjvy9/short.png")
+
+            // error checking
+            if (err || data.error) {
+                return message.channel.send(`:x: Something went wrong.`);
+            }
+            // sending recieved info to discord through and embed
+            else {
+                message.channel.send({
+                    embeds: [embed]
+                });
                 console.log(body);
             }
         });

@@ -1,6 +1,7 @@
 // Importing dependencies
 require("dotenv").config();
 const { PREFIX } = require("../../config.json");
+const {MessageButton} = require('discord.js');
 
 module.exports = (Discord, client, message) => {
 

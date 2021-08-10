@@ -4,7 +4,7 @@ module.exports = {
     aliases: ["remove"],
     async execute(message, args, cmd, client, Discord) {
         //checks for proper permissions
-        if (!message.member.hasPermission("KICK_MEMBERS"))
+        if (!message.member.permissions.has("KICK_MEMBERS"))
             return message.channel.send("Insefficiant Permissions");
             // creates a variable and makes sure the user inputted is valid
         let member =

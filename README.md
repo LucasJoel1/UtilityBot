@@ -1,10 +1,8 @@
 <div align="center">
   <h1>
     <a href="https://github.com/LucasJoel1/UtilityBot" target="_blank">
-      <img height="300" alt="UB" src="./resources/logo.svg">
+      <img height="300" alt="UB" src="./resources/UtilityBotFull.svg" style="display: block; margin-left: auto; margin-right: auto;">
     </a>
-    <br />
-    Utility Bot
   </h1>
 </div>
 
@@ -39,8 +37,6 @@ npm i node-fetch
 > - **ban:** Bans a user from a Discord server <br />
 > - **kick:** Kicks a user from a Discord server <br />
 > - **unban:** Unbans a user from a Discord server <br />
-> - *possibly* **music:** adds full music bot functionality <br />
-> - And more to come<br />
 
 ### Utility Commands
 
@@ -53,6 +49,7 @@ npm i node-fetch
 > - I plan on adding a help command to the bot <br />
 > - I plan on adding a [Minecraft](https://minecraft.net) command to view information about servers and players <br />
 > - I plan on adding a github wiki to better explain how to use all the commands <br />
+> - I plan on adding FRC functionality which will incude information about teams, events and districts
 
 <img height="180" alt="plans" src="./resources/plans.svg">
 

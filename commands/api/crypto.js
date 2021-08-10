@@ -5,6 +5,9 @@ const {
     cryptoAPI
 } = require('../../config.json');
 const Discord = require('discord.js');
+const {
+    MessageEmbed
+} = require('discord.js');
 
 
 module.exports = {
@@ -33,13 +36,10 @@ module.exports = {
             // logging the json for debugging
             console.log(json);
 
-
-            //send info to discord in embed form
-            await message.channel.send(
-                    new Discord.MessageEmbed()
-                    .setAuthor(`${name}`)
-                    .setTitle(`${id}`)
-                    .setDescription(`
+            const embed = new Discord.MessageEmbed()
+                .setAuthor(`${name}`)
+                .setTitle(`${id}`)
+                .setDescription(`
 **Status:** ${status}
 
 **Price:** $${price}
@@ -49,9 +49,14 @@ module.exports = {
 **Circulating Supply:** ${circulating_supply}
 
 **Market Capitalization:** ${market_cap}`)
-                    .setColor("#536DFE")
-                    .setFooter("Powered by Nomics", "https://www.startupinspire.com/assets/startups/5889/1578689899_nomics-logo.png")
-                )
+                .setColor("#536DFE")
+                .setFooter("Powered by Nomics", "https://www.startupinspire.com/assets/startups/5889/1578689899_nomics-logo.png")
+
+
+            //send info to discord in embed form
+            await message.channel.send({
+                    embeds: [embed]
+                })
                 // error checking
                 .catch(err => {
                     message.channel.send('An error occured with the following message: ' + err.message)

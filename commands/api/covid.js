@@ -27,52 +27,54 @@ module.exports = {
             console.log(json);
             console.log(json2);
 
+            const embed = new Discord.MessageEmbed()
+                .setAuthor(`Covid Cases in ${json.country}`)
+                .setTitle(`COVID-19`)
+                .setURL("https://disease.sh")
+                .setDescription(
+                    `
+**Cases**
+> **Total Cases:** ${json.cases}
+> **Todays Cases:** ${json.todayCases}
+> **Active Cases:** ${json.active}
+> **Critical Cases:** ${json.critical}
+> **Cases Per One Million People:** ${json.casesPerOneMillion}
+> **Active Cases Per million People:** ${json.activePerOneMillion}
+
+**Deaths**
+> **Total Deaths:** ${json.deaths}
+> **Todays Deaths:** ${json.todayDeaths}
+> **Deaths Per One Million People:** ${json.deathsPerOneMillion}
+
+**Recovered**
+> **Total Recovered:** ${json.recovered}
+> **Todays Recovered:** ${json.todayRecovered}
+> **Recovered Per One Million People:** ${json.recoveredPerOneMillion}
+
+**Tests**
+> **Total Tests:** ${json.tests}
+> **Tests Per One Million People:** ${json.testsPerOneMillion}
+
+
+**Vaccinated**
+> **Total** ${total}
+    `
+                )
+                .setThumbnail(json.countryInfo.flag)
+                .setColor("#536DFE")
+                .setFooter("Powered by disease.sh")
+
             // sending info the Discord in embed form
 
             await message.channel
-                .send(
-                    new Discord.MessageEmbed()
-                        .setAuthor(`Covid Cases in ${json.country}`)
-                        .setTitle(`COVID-19`)
-                        .setURL("https://disease.sh")
-                        .setDescription(
-                            `
-    **Cases**
-        > **Total Cases:** ${json.cases}
-        > **Todays Cases:** ${json.todayCases}
-        > **Active Cases:** ${json.active}
-        > **Critical Cases:** ${json.critical}
-        > **Cases Per One Million People:** ${json.casesPerOneMillion}
-        > **Active Cases Per million People:** ${json.activePerOneMillion}
-    
-    **Deaths**
-        > **Total Deaths:** ${json.deaths}
-        > **Todays Deaths:** ${json.todayDeaths}
-        > **Deaths Per One Million People:** ${json.deathsPerOneMillion}
-    
-    **Recovered**
-        > **Total Recovered:** ${json.recovered}
-        > **Todays Recovered:** ${json.todayRecovered}
-        > **Recovered Per One Million People:** ${json.recoveredPerOneMillion}
-    
-    **Tests**
-        > **Total Tests:** ${json.tests}
-        > **Tests Per One Million People:** ${json.testsPerOneMillion}
-    
-    
-    **Vaccinated**
-        > **Total** ${total}
-                `
-                        )
-                        .setThumbnail(json.countryInfo.flag)
-                        .setColor("#536DFE")
-                        .setFooter("Powered by disease.sh")
-                )
+                .send({
+                    embeds: [embed]
+                })
                 //error checking
                 .catch((err) => {
                     message.channel.send(
                         "An error occured with the following message: " +
-                            err.message
+                        err.message
                     );
                 });
         } catch (err) {

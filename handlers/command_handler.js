@@ -54,4 +54,5 @@ module.exports = (client, Discord) => {
             continue;
         }
     }
+    console.log("commands loaded");
 };

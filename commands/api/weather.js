@@ -1,6 +1,8 @@
 // Importing dependencies
 const fetch = require("node-fetch");
-const { weatherAPI } = require("../../config.json");
+const {
+    weatherAPI
+} = require("../../config.json");
 const Discord = require("discord.js");
 
 module.exports = {
@@ -27,15 +29,12 @@ module.exports = {
             console.log(`Got ${json.name}'s weather data (id: ${json.id})`);
             console.log(`${icon}`);
 
-            // sending embed to discord from recieved message
-            await message.channel
-                .send(
-                    new Discord.MessageEmbed()
-                        .setAuthor(`${json.name} Weather`)
-                        .setTitle(`${main}`)
-                        .setURL("https://openweathermap.org")
-                        .setDescription(
-                            `
+            const embed = new Discord.MessageEmbed()
+                .setAuthor(`${json.name} Weather`)
+                .setTitle(`${main}`)
+                .setURL("https://openweathermap.org")
+                .setDescription(
+                    `
 **Forecast:** ${description}
 **Temperature:** ${json.main.temp}°C
 **Feels Like:** ${json.main.feels_like}°C
@@ -46,18 +45,21 @@ module.exports = {
 **Latitude**: ${json.coord.lat}
 
             `
-                        )
-                        .setThumbnail(
-                            `https://openweathermap.org/img/wn/${icon}@2x.png`, "https://openweathermap.org/themes/openweathermap/assets/img/logo_white_cropped.png"
-                        )
-                        .setColor("#536DFE")
-                        .setFooter("Powered by OpenWeatherMap")
                 )
+                .setThumbnail(
+                    `https://openweathermap.org/img/wn/${icon}@2x.png`, "https://openweathermap.org/themes/openweathermap/assets/img/logo_white_cropped.png"
+                )
+                .setColor("#536DFE")
+                .setFooter("Powered by OpenWeatherMap")
+
+            // sending embed to discord from recieved message
+            await message.channel
+                .send({ embeds: [embed]})
                 // error checking
                 .catch((err) => {
                     message.channel.send(
                         "An error occured with the following message: " +
-                            err.message
+                        err.message
                     );
                 });
         } catch (err) {

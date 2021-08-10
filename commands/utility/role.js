@@ -4,7 +4,7 @@ module.exports = {
     description: "Create a role",
 
     async execute(message, args, cmd, client, Discord) {
-        if (!message.member.hasPermission("BAN_MEMBERS"))
+        if (!message.member.permissions.has("BAN_MEMBERS"))
             return message.channel.send("Insefficiant Permissions");
 
         if(args[0].includes)
@@ -22,14 +22,15 @@ module.exports = {
             Permissions: args[2]
         }
 
+        const embed = new Discord.MessageEmbed()
+                    .setTitle("Role created")
+            .setDescription(`The role ${role.name} has been created`)
+            .setColor(role.color)
+
         // if (console.error) {
         //     message.channel.send("an error has occured");
         // } else {
-            message.channel.send(new Discord.MessageEmbed()
-            .setTitle("Role created")
-            .setDescription(`The role ${role.name} has been created`)
-            .setColor(role.color)
-            );
+            message.channel.send({ embeds: [embed]});
         // }
     },
 };
