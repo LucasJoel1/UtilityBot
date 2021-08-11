@@ -5,10 +5,14 @@ const { TBAAPI } = require("../../config.json");
 module.exports = {
     name: "frcevent",
     description: "info about a frc event",
-    aliases: ["string", "string", "string"],
+    aliases: ["frce"],
     async execute(message, args, cmd, client, Discord) {
         try {
             // fetches info about (name) in different countries <options 1> andfetches info about vaccinations in different countries <options2>
+
+            if(args[0] === undefined) {
+                messaeg.chanel.send("please send a valid event");
+            }
 
             const event = args[0];
 
@@ -27,11 +31,7 @@ module.exports = {
             // logging the consts for debugging purposes
             console.log(json);
 
-            // sending info the Discord in embed form
-
-            await message.channel
-                .send(
-                    new Discord.MessageEmbed()
+            const embed = new Discord.MessageEmbed()
                         .setAuthor(json.name)
                         .setTitle(json.first_event_code + " " + json.year)
                         .setURL(json.website)
@@ -49,7 +49,12 @@ module.exports = {
                                 "\n" +
                                 `**Event Type: ** ${json.event_type_string}`
                         )
-                )
+
+            // sending info the Discord in embed form
+
+            await message.channel
+                .send({ embeds: [embed]})
+
                 //error checking
                 .catch((err) => {
                     message.channel.send(
@@ -59,6 +64,7 @@ module.exports = {
                 });
         } catch (err) {
             console.error(err);
+            message.channel.send("Please send a valid event");
         }
     },
 };

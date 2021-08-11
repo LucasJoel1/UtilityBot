@@ -1,16 +1,17 @@
 const Discord = require("discord.js");
+const { MessageEmbed, messageCreate } = require('discord.js');
 const fetch = require("node-fetch");
 const { TBAAPI } = require("../../config.json");
 
 module.exports = {
     name: "frcteam",
     description: "get info about an frc team",
-    aliases: [""],
+    aliases: ["frct"],
     async execute(message, args, cmd, client, Discord) {
         try {
             // fetches info about (name) in different countries <options 1> andfetches info about vaccinations in different countries <options2>
             if (args[0] === null) {
-                message.channel.send("please send a team name");
+                m.channel.send("please send a team name");
             }
             const teamNumber = args[0];
 
@@ -40,14 +41,13 @@ module.exports = {
             const awards = { 0: 0, 1: 0, 2: 0, 3: 0 };
             json2.forEach(({ award_type }) => awards[award_type]++);
 
-            // logging the consts for debugging purposes
-            console.log(json);
-            await message.channel
-                .send(
-                    new Discord.MessageEmbed()
-                        .setTitle(json.team_number)
+            const website = json.website.toLowerCase();
+            console.log(website);
+
+            const embed = new Discord.MessageEmbed()
+                                    .setTitle(teamNumber)
                         .setAuthor(json.nickname)
-                        .setURL(json.website)
+                        .setURL(`https://www.thebluealliance.com/team/${teamNumber}`)
                         .setDescription(
                             `**School:** ${json.school_name}` +
                                 "\n" +
@@ -57,7 +57,7 @@ module.exports = {
                                 "\n" +
                                 `**City:** ${json.city}` +
                                 "\n" +
-                                `**Website:** ${json.website}` +
+                                `**Website:** ${website}` +
                                 "\n" +
                                 `\n` +
                                 `**AWARDS**` +
@@ -74,7 +74,10 @@ module.exports = {
                             "Powered By The Blue Alliance API",
                             "https://play-lh.googleusercontent.com/XJMfH3PCD9Vy2J5sg3d1sew4IFf2BIgtCpg921n0F2lQyMvmOhrsoY9UIqqrm_5GLw"
                         )
-                )
+
+            // logging the consts for debugging purposes
+            console.log(json);
+            await message.channel.send({ embeds: [embed]})
                 //error checking
                 .catch((err) => {
                     message.channel.send(
