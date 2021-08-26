@@ -1,3 +1,5 @@
+**Utility Bot is no longer receiving updates for a unspecified amount of time and may not receive another update in the future**
+
 <div align="center">
   <h1>
     <a href="https://github.com/LucasJoel1/UtilityBot" target="_blank">
